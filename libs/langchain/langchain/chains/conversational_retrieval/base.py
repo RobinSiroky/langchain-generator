@@ -142,10 +142,7 @@ class BaseConversationalRetrievalChain(Chain):
         chat_history_str = get_chat_history(inputs["chat_history"])
 
         if chat_history_str:
-            callbacks = _run_manager.get_child()
-            new_question = self.question_generator.run(
-                question=question, chat_history=chat_history_str, callbacks=callbacks
-            )
+            new_question = question
         else:
             new_question = question
         accepts_run_manager = (
